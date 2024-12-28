@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\admin\BeritaController;
 use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\FotoController;
 use App\Http\Controllers\Admin\KategoriController;
 use App\Http\Controllers\admin\ValidatingController;
+use App\Http\Controllers\admin\VideoController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,3 +32,5 @@ Route::resource('kategori-berita', KategoriController::class);
 Route::resource('berita', BeritaController::class);
 Route::get('publish/{id}', [ValidatingController::class, 'publish'])->name('publish');
 Route::get('draft/{id}', [ValidatingController::class, 'draft'])->name('draft');
+Route::resource('photo', FotoController::class);
+Route::resource('videos', VideoController::class);
