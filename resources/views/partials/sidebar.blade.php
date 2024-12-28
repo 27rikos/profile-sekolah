@@ -52,7 +52,8 @@
                     <span class="hide-menu">Gallery Component</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
+                    <a class="sidebar-link {{ request()->routeIs('videos.*') ? 'active' : '' }}"
+                        href="{{ route('videos.index') }}" aria-expanded="false">
                         <span>
                             <i class="ti ti-video"></i>
                         </span>
@@ -60,7 +61,8 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
+                    <a class="sidebar-link {{ request()->routeIs('photo.*') ? 'active' : '' }}"
+                        href="{{ route('photo.index') }}" aria-expanded="false">
                         <span>
                             <i class="ti ti-photo"></i>
                         </span>
