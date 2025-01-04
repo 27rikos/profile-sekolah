@@ -74,7 +74,8 @@
                     <span class="hide-menu">Other Component</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+                    <a class="sidebar-link {{ request()->routeIs('profile') || request()->routeIs('history.*') ? 'active' : '' }}"
+                        href="{{ route('profile') }}" aria-expanded="false">
                         <span>
                             <i class="ti ti-layout"></i>
                         </span>
@@ -82,7 +83,8 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="./authentication-register.html" aria-expanded="false">
+                    <a class="sidebar-link {{ request()->routeIs('event.*') ? 'active' : '' }}"
+                        href="{{ route('event.index') }}" aria-expanded="false">
                         <span>
                             <i class="ti ti-speakerphone"></i>
                         </span>
