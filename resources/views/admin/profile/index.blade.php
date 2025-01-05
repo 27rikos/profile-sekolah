@@ -1,9 +1,8 @@
 @extends('layout.app')
-@section('title')
-    Profile
-@endsection
+@section('title', 'Profile')
 
 @section('main')
+    {{-- Toast Notifications --}}
     <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1050">
         @if (session('success'))
             <div class="toast align-items-center text-bg-success border-0 show" role="alert" aria-live="assertive"
@@ -31,7 +30,9 @@
             </div>
         @endif
     </div>
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+    {{-- Tab Navigation --}}
+    <ul class="nav nav-tabs mt-4" id="profileTab" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="sejarah-tab" data-bs-toggle="tab" data-bs-target="#sejarah" type="button"
                 role="tab" aria-controls="sejarah" aria-selected="true">Sejarah</button>
@@ -45,20 +46,23 @@
                 role="tab" aria-controls="fasilitas" aria-selected="false">Fasilitas</button>
         </li>
     </ul>
-    <div class="tab-content" id="myTabContent">
+
+    {{-- Tab Content --}}
+    <div class="tab-content p-3 border rounded-bottom" id="profileTabContent">
+        {{-- Sejarah Tab --}}
         <div class="tab-pane fade show active" id="sejarah" role="tabpanel" aria-labelledby="sejarah-tab">
-            <div class="mt-3">
-                <div class="d-flex justify-content-end gap-2">
-                    @if ($data->isEmpty())
-                        <a href="{{ route('history.create') }}" class="btn btn-primary"><i
-                                class="ti ti-plus me-1"></i>Tambah</a>
-                    @endif
-                    @if (isset($data[0]))
-                        <a href="{{ route('history.edit', $data[0]) }}" class="btn btn-info"><i
-                                class="ti ti-edit me-1"></i>Edit</a>
-                        <a href="{{ route('history.destroy', $data[0]->id) }}" class="btn btn-danger"><i
-                                class="ti ti-trash-x me-1"></i>Hapus</a>
-                </div>
+            <div class="d-flex justify-content-end gap-2 my-3">
+                @if ($data->isEmpty())
+                    <a href="{{ route('history.create') }}" class="btn btn-primary">
+                        <i class="ti ti-plus me-1"></i>Tambah
+                    </a>
+                @else
+                    <a href="{{ route('history.edit', $data[0]->id) }}" class="btn btn-info">
+                        <i class="ti ti-edit me-1"></i>Edit
+                    </a>
+                    <a href="{{ route('history.destroy', $data[0]->id) }}" class="btn btn-danger">
+                        <i class="ti ti-trash-x me-1"></i>Hapus
+                    </a>
                 @endif
             </div>
             <p>
@@ -71,11 +75,40 @@
                 @endforelse
             </p>
         </div>
+
+        {{-- Visi-Misi Tab --}}
         <div class="tab-pane fade" id="visi-misi" role="tabpanel" aria-labelledby="visi-misi-tab">
-            <p>Isi informasi tentang visi dan misi di sini.</p>
+            <div class="d-flex justify-content-end gap-2 my-3">
+                @if ($goals->isEmpty())
+                    <a href="{{ route('goals.create') }}" class="btn btn-primary">
+                        <i class="ti ti-plus me-1"></i>Tambah
+                    </a>
+                @else
+                    <a href="{{ route('goals.edit', $goals[0]->id) }}" class="btn btn-info">
+                        <i class="ti ti-edit me-1"></i>Edit
+                    </a>
+                    <a href="{{ route('goals.destroy', $goals[0]->id) }}" class="btn btn-danger">
+                        <i class="ti ti-trash-x me-1"></i>Hapus
+                    </a>
+                @endif
+            </div>
+            <p>
+                @forelse ($goals as $item)
+                    <strong>Visi:</strong> {!! $item->visi !!}<br>
+                    <strong>Misi:</strong> {!! $item->misi !!}
+                @empty
+                    <div class="alert alert-primary" role="alert">
+                        Visi dan Misi Belum Tersedia
+                    </div>
+                @endforelse
+            </p>
         </div>
+
+        {{-- Fasilitas Tab --}}
         <div class="tab-pane fade" id="fasilitas" role="tabpanel" aria-labelledby="fasilitas-tab">
-            <p>Isi informasi tentang fasilitas di sini.</p>
+            <div class="my-3">
+                <p>Isi informasi tentang fasilitas di sini.</p>
+            </div>
         </div>
     </div>
 @endsection

@@ -74,7 +74,7 @@
                     <span class="hide-menu">Other Component</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link {{ request()->routeIs('profile') || request()->routeIs('history.*') ? 'active' : '' }}"
+                    <a class="sidebar-link {{ request()->routeIs('profile') || request()->routeIs('history.*') || request()->routeIs('goals.*') ? 'active' : '' }}"
                         href="{{ route('profile') }}" aria-expanded="false">
                         <span>
                             <i class="ti ti-layout"></i>

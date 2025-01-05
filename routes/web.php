@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\BeritaController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\EventController;
 use App\Http\Controllers\admin\FotoController;
+use App\Http\Controllers\admin\GoalsController;
 use App\Http\Controllers\admin\HistoryController;
 use App\Http\Controllers\Admin\KategoriController;
 use App\Http\Controllers\admin\ProfileController;
@@ -45,3 +46,9 @@ Route::post('histories/store', [HistoryController::class, 'store'])->name('histo
 Route::get('histories/{id}/edit', [HistoryController::class, 'edit'])->name('history.edit');
 Route::put('histories/{id}/update', [HistoryController::class, 'update'])->name('history.update');
 Route::get('histories/{id}/destroy', [HistoryController::class, 'destroy'])->name('history.destroy');
+
+Route::get('goals/create', [GoalsController::class, 'create'])->name('goals.create');
+Route::post('goals/store', [GoalsController::class, 'store'])->name('goals.store');
+Route::get('goals/{id}/edit', [GoalsController::class, 'edit'])->name('goals.edit');
+Route::put('goals/{id}/update', [GoalsController::class, 'update'])->name('goals.update');
+Route::get('goals/{id}/destroy', [GoalsController::class, 'destroy'])->name('goals.destroy');
