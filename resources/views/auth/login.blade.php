@@ -13,6 +13,21 @@
     <!--  Body Wrapper -->
     <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
         data-sidebar-position="fixed" data-header-position="fixed">
+        <div class="position-fixed top-0 end-0 p-3" style="z-index: 1050">
+            @if (session('error'))
+                <div class="toast align-items-center text-bg-danger border-0 show" role="alert" aria-live="assertive"
+                    aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            {{ session('error') }}
+                        </div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                            aria-label="Close"></button>
+                    </div>
+                </div>
+            @endif
+        </div>
+
         <div
             class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
             <div class="d-flex align-items-center justify-content-center w-100">
@@ -21,18 +36,19 @@
                         <div class="card mb-0">
                             <div class="card-body">
                                 <h3 class="text-center">Login</h3>
-                                <form>
+                                <form action="{{ route('authentication') }}" method="POST">
+                                    @csrf
                                     <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Email</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="email" name="email"
                                             aria-describedby="emailHelp">
                                     </div>
                                     <div class="mb-4">
-                                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1">
+                                        <label for="password" class="form-label">Password</label>
+                                        <input type="password" class="form-control" id="password" name="password">
                                     </div>
-                                    <a href="./index.html" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Sign
-                                        In</a>
+                                    <button class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" type="submit">Sign
+                                        In</button>
                                     <div class="d-flex align-items-center justify-content-center">
                                         <p class="mb-0 fw-bold">Belum Punya Akun?</p>
                                         <a class="text-primary fw-bold ms-2"
