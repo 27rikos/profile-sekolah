@@ -17,36 +17,20 @@
         <div class="container">
             <h2 class="section-title text-center">Event Terkini</h2>
             <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body">
-                            <h5 class="card-title">Workshop Programming</h5>
-                            <p class="card-text">Workshop intensif programming dengan mentor professional dari industri
-                                IT terkemuka.</p>
-                            <a href="#" class="btn btn-outline-primary">Selengkapnya</a>
+                @forelse ($latest_event as $item)
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $item->event }}</h5>
+                                <p class="card-text">{!! Str::limit(strip_tags($item['deskripsi']), 100, '...') !!}</p>
+                                <a href="{{ route('detail-event', $item->id) }}"
+                                    class="btn btn-outline-primary">Selengkapnya</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body">
-                            <h5 class="card-title">Kompetisi Robotik</h5>
-                            <p class="card-text">Kompetisi robotik tingkat nasional untuk mengasah kreativitas siswa
-                                dalam teknologi.</p>
-                            <a href="#" class="btn btn-outline-primary">Selengkapnya</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body">
-                            <h5 class="card-title">Career Day</h5>
-                            <p class="card-text">Acara tahunan yang mempertemukan siswa dengan perusahaan untuk peluang
-                                magang dan kerja.</p>
-                            <a href="#" class="btn btn-outline-primary">Selengkapnya</a>
-                        </div>
-                    </div>
-                </div>
+                @empty
+                @endforelse
+
             </div>
         </div>
     </section>

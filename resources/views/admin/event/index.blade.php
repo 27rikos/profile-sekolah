@@ -84,7 +84,7 @@
                             </div>
                             <div class="modal-body">
                                 <h2>{{ $item->event }}</h2>
-                                <p>{{ \Carbon\Carbon::parse($item->tanggla)->translatedFormat('d F Y') }}</p>
+                                <p>{{ \Carbon\Carbon::parse($item->tanggal)->translatedFormat('d F Y') }}</p>
                                 <p>{!! $item->deskripsi !!}</p>
                             </div>
                             <div class="modal-footer">

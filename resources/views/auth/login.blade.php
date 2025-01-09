@@ -54,15 +54,6 @@
                                         <a class="text-primary fw-bold ms-2"
                                             href="./authentication-register.html">Daftar disini</a>
                                     </div>
-                                    <small>Atau</small>
-                                    <div class="d-flex justify-content-start gap-2 mt-2">
-                                        <a href="#" class="btn btn-outline-danger fs-4"><i
-                                                class="ti ti-brand-google"></i></a>
-                                        <a href="#" class="btn btn-outline-primary fs-4"><i
-                                                class="ti ti-brand-facebook"></i></a>
-                                        <a href="#" class="btn btn-outline-info fs-4"><i
-                                                class="ti ti-brand-twitter"></i></a>
-                                    </div>
                                 </form>
                             </div>
                         </div>
