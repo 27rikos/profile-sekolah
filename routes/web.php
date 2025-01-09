@@ -13,6 +13,7 @@ use App\Http\Controllers\admin\ValidatingController;
 use App\Http\Controllers\admin\VideoController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\frontend\HomeController;
+use App\Http\Controllers\frontend\ProfileSekolahController;
 use App\Http\Controllers\frontend\ReadController;
 use Illuminate\Support\Facades\Route;
 
@@ -61,3 +62,5 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('read-news/{slug}/detail', [ReadController::class, 'detail_news'])->name('read-news');
+Route::get('detail-event/{id}', [ReadController::class, 'detail_event'])->name('detail-event');
+Route::get('profil-sekolah', [ProfileSekolahController::class, 'index'])->name('profil-sekolah');

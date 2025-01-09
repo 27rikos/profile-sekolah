@@ -83,15 +83,6 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link {{ request()->routeIs('profile') || request()->routeIs('history.*') || request()->routeIs('goals.*') ? 'active' : '' }}"
-                        href="{{ route('profile') }}" aria-expanded="false">
-                        <span>
-                            <i class="ti ti-layout"></i>
-                        </span>
-                        <span class="hide-menu">Profile</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
                     <a class="sidebar-link {{ request()->routeIs('event.*') ? 'active' : '' }}"
                         href="{{ route('event.index') }}" aria-expanded="false">
                         <span>

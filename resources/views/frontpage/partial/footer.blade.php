@@ -31,24 +31,24 @@
 
             <!-- Kolom Jurusan -->
             <div class="col-md-4">
-                <h5 class="mb-4 fw-bold">Profle Sekolah</h5>
+                <h5 class="mb-4 fw-bold">Quik Menu</h5>
                 <ul class="list-unstyled">
                     <li class="mb-3">
-                        <a href="#" class="text-light text-decoration-none">
+                        <a href="{{ route('profil-sekolah') }}" class="text-light text-decoration-none">
                             <i class="fas fa-chevron-right me-2"></i>
-                            Sejarah Sekolah
+                            Profil Sekolah
                         </a>
                     </li>
                     <li class="mb-3">
                         <a href="#" class="text-light text-decoration-none">
                             <i class="fas fa-chevron-right me-2"></i>
-                            Visi-Misi
+                            Berita
                         </a>
                     </li>
                     <li class="mb-3">
-                        <a href="#" class="text-light text-decoration-none">
+                        <a href="{{ route('home') }}" class="text-light text-decoration-none">
                             <i class="fas fa-chevron-right me-2"></i>
-                            Fasilitas
+                            Beranda
                         </a>
                     </li>
                 </ul>

@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand fw-bold" href="#">
             <span class="d-none d-lg-inline">SMK Negeri 1 Siempat Rube</span>
@@ -12,7 +12,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav ms-auto me-2">
                 <li class="nav-item ">
                     <a href="{{ route('home') }}" class="nav-link" href="#beranda">Beranda</a>
                 </li>
@@ -29,16 +29,8 @@
                         <li><a class="dropdown-item" href="#">Foto</a></li>
                     </ul>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProfile" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Profile
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownProfile">
-                        <li><a class="dropdown-item" href="#">Sejarah</a></li>
-                        <li><a class="dropdown-item" href="#">Visi-Misi</a></li>
-                        <li><a class="dropdown-item" href="#">Fasilitas</a></li>
-                    </ul>
+                <li class="nav-item">
+                    <a href="{{ route('profil-sekolah') }}" class="nav-link" href="#berita">Profile</a>
                 </li>
             </ul>
             <div class="d-flex flex-column flex-lg-row gap-2">
