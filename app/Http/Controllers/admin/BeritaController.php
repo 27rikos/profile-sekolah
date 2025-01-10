@@ -31,6 +31,7 @@ class BeritaController extends Controller
                 'penulis' => 'required',
                 'konten' => 'required',
                 'tanggal' => 'required|date',
+                'file' => 'max:2040',
             ]);
             $data = Berita::create([
                 'judul' => $request->judul,

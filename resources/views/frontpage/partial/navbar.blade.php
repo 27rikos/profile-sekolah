@@ -17,7 +17,7 @@
                     <a href="{{ route('home') }}" class="nav-link" href="#beranda">Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#berita">Berita</a>
+                    <a href="{{ route('other-news') }}" class="nav-link" href="#berita">Berita</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownGallery" role="button"
@@ -25,8 +25,8 @@
                         Gallery
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownGallery">
-                        <li><a class="dropdown-item" href="#">Video</a></li>
-                        <li><a class="dropdown-item" href="#">Foto</a></li>
+                        <li><a class="dropdown-item" href="{{ route('video') }}">Video</a></li>
+                        <li><a class="dropdown-item" href="{{ route('foto') }}">Foto</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
