@@ -40,7 +40,7 @@
                         </a>
                     </li>
                     <li class="mb-3">
-                        <a href="#" class="text-light text-decoration-none">
+                        <a href="{{ route('other-news') }}" class="text-light text-decoration-none">
                             <i class="fas fa-chevron-right me-2"></i>
                             Berita
                         </a>

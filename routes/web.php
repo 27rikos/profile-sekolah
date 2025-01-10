@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\admin\BeritaController;
+use App\Http\Controllers\admin\ChatController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\EventController;
+use App\Http\Controllers\admin\FacylitesController;
 use App\Http\Controllers\admin\FotoController;
 use App\Http\Controllers\admin\GoalsController;
 use App\Http\Controllers\admin\HistoryController;
@@ -12,6 +14,8 @@ use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\admin\ValidatingController;
 use App\Http\Controllers\admin\VideoController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\frontend\BeritaLainController;
+use App\Http\Controllers\frontend\GalleryController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\ProfileSekolahController;
 use App\Http\Controllers\frontend\ReadController;
@@ -57,10 +61,23 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('goals/store', [GoalsController::class, 'store'])->name('goals.store');
     Route::get('goals/{id}/edit', [GoalsController::class, 'edit'])->name('goals.edit');
     Route::put('goals/{id}/update', [GoalsController::class, 'update'])->name('goals.update');
-    Route::get('goals/{id}/destroy', [GoalsController::class, 'destroy'])->name('goals.destroy');
+    Route::delete('goals/{id}/destroy', [GoalsController::class, 'destroy'])->name('goals.destroy');
+
+    Route::get('facility/create', [FacylitesController::class, 'create'])->name('facility.create');
+    Route::post('facility/store', [FacylitesController::class, 'store'])->name('facility.store');
+    Route::get('facility/{id}/edit', [FacylitesController::class, 'edit'])->name('facility.edit');
+    Route::put('facility/{id}/update', [FacylitesController::class, 'update'])->name('facility.update');
+    Route::delete('facility/{id}/destroy', [FacylitesController::class, 'destroy'])->name('facility.destroy');
+
+    Route::get('chat', [ChatController::class, 'index'])->name('chat.index');
+    Route::get('chat/store', [ChatController::class, 'store'])->name('chat.store');
+
 });
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('read-news/{slug}/detail', [ReadController::class, 'detail_news'])->name('read-news');
 Route::get('detail-event/{id}', [ReadController::class, 'detail_event'])->name('detail-event');
 Route::get('profil-sekolah', [ProfileSekolahController::class, 'index'])->name('profil-sekolah');
+Route::get('berita-lainnya', [BeritaLainController::class, 'index'])->name('other-news');
+Route::get('video', [GalleryController::class, 'video'])->name('video');
+Route::get('foto', [GalleryController::class, 'foto'])->name('foto');

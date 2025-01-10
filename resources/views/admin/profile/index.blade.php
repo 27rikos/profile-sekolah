@@ -52,21 +52,21 @@
         {{-- Sejarah Tab --}}
         <div class="tab-pane fade show active" id="sejarah" role="tabpanel" aria-labelledby="sejarah-tab">
             <div class="d-flex justify-content-end gap-2 my-3">
-                @if ($data->isEmpty())
+                @if ($histories->isEmpty())
                     <a href="{{ route('history.create') }}" class="btn btn-primary">
                         <i class="ti ti-plus me-1"></i>Tambah
                     </a>
                 @else
-                    <a href="{{ route('history.edit', $data[0]->id) }}" class="btn btn-info">
+                    <a href="{{ route('history.edit', $histories[0]->id) }}" class="btn btn-info">
                         <i class="ti ti-edit me-1"></i>Edit
                     </a>
-                    <a href="{{ route('history.destroy', $data[0]->id) }}" class="btn btn-danger">
+                    <a href="{{ route('history.destroy', $histories[0]->id) }}" class="btn btn-danger">
                         <i class="ti ti-trash-x me-1"></i>Hapus
                     </a>
                 @endif
             </div>
             <p>
-                @forelse ($data as $item)
+                @forelse ($histories as $item)
                     {!! $item->history !!}
                 @empty
                     <div class="alert alert-primary" role="alert">
@@ -107,7 +107,39 @@
         {{-- Fasilitas Tab --}}
         <div class="tab-pane fade" id="fasilitas" role="tabpanel" aria-labelledby="fasilitas-tab">
             <div class="my-3">
-                <p>Isi informasi tentang fasilitas di sini.</p>
+                <a href="{{ route('facility.create') }}" class="btn btn-primary"> <i class="ti ti-plus me-1"></i>Tambah</a>
+                <table id="example" class="table table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Gambar</th>
+                            <th>Keterangan</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($data as $item)
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('images/fasilitas_image/' . $item->file) }}" alt="Fasilitas"
+                                        width="300" height="300" class="object-fit-cover img-fluid rounded"
+                                        srcset="">
+                                </td>
+                                <td>{{ $item->judul }}</td>
+                                <td>
+                                    <div class="d-flex gap-1">
+                                        <a href="{{ route('facility.edit', $item->id) }}"
+                                            class="btn btn-primary btn-sm"><i class="ti ti-edit"></i></a>
+                                        <form action="{{ route('facility.destroy', $item->id) }}" method="post">
+                                            @method('delete')
+                                            <button class=" btn btn-danger btn-sm"><i class="ti ti-trash-x"></i></button>
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

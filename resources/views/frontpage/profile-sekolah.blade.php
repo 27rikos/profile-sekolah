@@ -55,13 +55,26 @@
                 </div>
                 <div class="tab-pane fade" id="fasilitas" role="tabpanel" aria-labelledby="fasilitas-tab">
                     <h3>Fasilitas</h3>
-                    <ul>
-                        <li>Laboratorium Komputer Modern</li>
-                        <li>Perpustakaan Lengkap</li>
-                        <li>Lapangan Olahraga Multifungsi</li>
-                        <li>Ruang Kesenian</li>
-                        <li>Kantin Bersih dan Nyaman</li>
-                    </ul>
+                    <table id="example" class="table table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Gambar</th>
+                                <th>Keterangan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($data as $item)
+                                <tr>
+                                    <td>
+                                        <img src="{{ asset('images/fasilitas_image/' . $item->file) }}" alt="Fasilitas"
+                                            width="300" height="300" class="object-fit-cover img-fluid rounded"
+                                            srcset="">
+                                    </td>
+                                    <td>{{ $item->judul }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
