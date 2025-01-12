@@ -10,20 +10,14 @@
                 </p>
                 <div class="social-links ">
                     <!-- Link ke Facebook -->
-                    <a href="#" class="text-light me-3 fs-3 text-decoration-none " aria-label="Facebook">
+                    <a href="https://www.facebook.com/share/182qud5adq/?mibextid=wwXIfr"
+                        class="text-light me-3 fs-3 text-decoration-none " aria-label="Facebook">
                         <i class="fa-brands fa-facebook"></i>
                     </a>
                     <!-- Link ke Instagram -->
-                    <a href="#" class="text-light me-3 fs-3 text-decoration-none" aria-label="Instagram">
+                    <a href="https://www.instagram.com/smkn1siempatrube123?igsh=MWNrODZvNm42dG9ydA=="
+                        class="text-light me-3 fs-3 text-decoration-none" aria-label="Instagram">
                         <i class="fab fa-instagram"></i>
-                    </a>
-                    <!-- Link ke YouTube -->
-                    <a href="#" class="text-light me-3 fs-3 text-decoration-none" aria-label="YouTube">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                    <!-- Link ke TikTok -->
-                    <a href="#" class="text-light me-3 fs-3 text-decoration-none" aria-label="TikTok">
-                        <i class="fab fa-tiktok"></i>
                     </a>
                 </div>
 
@@ -55,7 +49,7 @@
             </div>
 
             <!-- Kolom Maps -->
-            <div class="col-md-4">
+            {{-- <div class="col-md-4">
                 <h5 class="mb-4 fw-bold">Lokasi Kami</h5>
                 <div class="maps-container rounded overflow-hidden">
                     <iframe
@@ -63,7 +57,7 @@
                         width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
-            </div>
+            </div> --}}
         </div>
 
         <!-- Copyright -->

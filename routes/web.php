@@ -18,6 +18,7 @@ use App\Http\Controllers\frontend\BeritaLainController;
 use App\Http\Controllers\frontend\GalleryController;
 use App\Http\Controllers\frontend\HomeController;
 use App\Http\Controllers\frontend\ProfileSekolahController;
+use App\Http\Controllers\frontend\ReadChatController;
 use App\Http\Controllers\frontend\ReadController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,14 +33,8 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-// public route
-Route::get('login', [LoginController::class, 'index'])->name('login');
-Route::post('verified', [LoginController::class, 'auth'])->name('authentication');
 // private route:admin:
-
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('logout', [LoginController::class, 'logout'])->name('logout');
-
+Route::middleware(['auth', 'permission:admin'])->group(function () {
     Route::resource('users-management', UsersController::class);
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('kategori-berita', KategoriController::class);
@@ -70,14 +65,21 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('facility/{id}/destroy', [FacylitesController::class, 'destroy'])->name('facility.destroy');
 
     Route::get('chat', [ChatController::class, 'index'])->name('chat.index');
-    Route::get('chat/store', [ChatController::class, 'store'])->name('chat.store');
-
+    Route::post('chat/store', [ChatController::class, 'store'])->name('chat.store');
 });
 
+// public route
+Route::get('login', [LoginController::class, 'index'])->name('login');
+Route::post('verified', [LoginController::class, 'auth'])->name('authentication');
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('register', [LoginController::class, 'create'])->name('registration');
+Route::post('register/store', [LoginController::class, 'store'])->name('registration.store');
 Route::get('read-news/{slug}/detail', [ReadController::class, 'detail_news'])->name('read-news');
 Route::get('detail-event/{id}', [ReadController::class, 'detail_event'])->name('detail-event');
 Route::get('profil-sekolah', [ProfileSekolahController::class, 'index'])->name('profil-sekolah');
 Route::get('berita-lainnya', [BeritaLainController::class, 'index'])->name('other-news');
 Route::get('video', [GalleryController::class, 'video'])->name('video');
 Route::get('foto', [GalleryController::class, 'foto'])->name('foto');
+Route::get('read-chat', [ReadChatController::class, 'index'])->name('read_chat');
+Route::post('send-chat', [ReadChatController::class, 'store'])->name('send_chat');

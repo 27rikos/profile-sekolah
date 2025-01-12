@@ -23,6 +23,9 @@
                         </div>
                     </div>
                 @empty
+                    <div class="alert alert-primary" role="alert">
+                        Video Belum Tersedia
+                    </div>
                 @endforelse
             </div>
         </div>

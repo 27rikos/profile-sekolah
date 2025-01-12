@@ -34,8 +34,23 @@
                 </li>
             </ul>
             <div class="d-flex flex-column flex-lg-row gap-2">
-                <a href="{{ route('login') }}" class="btn btn-outline-light mb-2 mb-lg-0">Sign In</a>
-                <a href="#signup" class="btn btn-primary">Sign Up</a>
+                @auth
+                    <!-- User is logged in -->
+                    <div class="dropdown">
+                        <a class="dropdown-toggle text-decoration-none text-light" href="#" role="button"
+                            id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="{{ Avatar::create(Auth::user()->name)->toBase64() }}" alt="User Profile"
+                                class="rounded-circle" style="width: 30px; height: 30px;">
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item " href="{{ route('logout') }}">Logout</a></li>
+                        </ul>
+                    </div>
+                @else
+                    <!-- User is not logged in -->
+                    <a href="{{ route('login') }}" class="btn btn-outline-light mb-2 mb-lg-0">Sign In</a>
+                    <a href="{{ route('registration') }}" class="btn btn-primary">Sign Up</a>
+                @endauth
             </div>
         </div>
     </div>
