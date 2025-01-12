@@ -37,8 +37,8 @@
                         </div>
                     </div>
                 @empty
-                    <div class="col-12">
-                        <p class="text-center">Belum ada berita.</p>
+                    <div class="alert alert-primary" role="alert">
+                        Berita Belum Tersedia
                     </div>
                 @endforelse
             </div>

@@ -100,6 +100,15 @@
                         <span class="hide-menu">Chat</span>
                     </a>
                 </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link {{ request()->routeIs('users-management.*') ? 'active' : '' }}"
+                        href="{{ route('users-management.index') }}" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-users"></i>
+                        </span>
+                        <span class="hide-menu">User Management</span>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- End Sidebar navigation -->

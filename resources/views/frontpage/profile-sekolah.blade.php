@@ -41,6 +41,9 @@
                         @forelse ($sejarah as $item)
                             {!! $item->history !!}
                         @empty
+                            <div class="alert alert-primary" role="alert">
+                                Sejarah Sekolah Belum Tersedia
+                            </div>
                         @endforelse
                     </p>
                 </div>
@@ -51,6 +54,9 @@
                         <p><strong>Misi:</strong></p>
                         {!! $item->misi !!}
                     @empty
+                        <div class="alert alert-primary" role="alert">
+                            Visi - Misi Belum Tersedia
+                        </div>
                     @endforelse
                 </div>
                 <div class="tab-pane fade" id="fasilitas" role="tabpanel" aria-labelledby="fasilitas-tab">
@@ -63,7 +69,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($data as $item)
+                            @forelse ($data as $item)
                                 <tr>
                                     <td>
                                         <img src="{{ asset('images/fasilitas_image/' . $item->file) }}" alt="Fasilitas"
@@ -72,7 +78,11 @@
                                     </td>
                                     <td>{{ $item->judul }}</td>
                                 </tr>
-                            @endforeach
+                            @empty
+                                <tr>
+                                    <td colspan="2" class="text-center text-danger">Data Kosong</td>
+                                </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>

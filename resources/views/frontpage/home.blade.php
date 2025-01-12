@@ -29,6 +29,9 @@
                         </div>
                     </div>
                 @empty
+                    <div class="alert alert-primary" role="alert">
+                        Event Belum Ada
+                    </div>
                 @endforelse
 
             </div>
@@ -58,6 +61,9 @@
                         </div>
                     </div>
                 @empty
+                    <div class="alert alert-primary" role="alert">
+                        Berita Belum Tersedia
+                    </div>
                 @endforelse
 
             </div>
