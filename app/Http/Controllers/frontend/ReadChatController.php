@@ -14,6 +14,7 @@ class ReadChatController extends Controller
             $messages = Message::with('user')->orderBy('created_at', 'asc')->get();
             return response()->json(['messages' => $messages]);
         }
+        return view('frontpage.partial.chat');
     }
 
     public function storeMessage(Request $request)
